@@ -20,3 +20,6 @@ project/plugins/project/
 
 # Ensime
 /.ensime*
+
+# JS
+/assets/

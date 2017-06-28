@@ -1,7 +1,7 @@
 val ScalaVer = "2.11.7"
 
 val ScalaJSDom = "0.9.1"
-val SubScript  = "3.0.5"
+val SubScript  = "3.0.5-SNAPSHOT"
 
 scalaVersion in ThisBuild := ScalaVer
 
@@ -39,6 +39,7 @@ lazy val jshelloworld = crossProject.in(file("."))
   .settings(SubscriptSbt.projectSettings)
   .settings(
     initialCommands := "import jshelloworld._"
+  , libraryDependencies += "org.subscript-lang" %%% "subscript-core" % SubScript
   )
   .jsSettings(
     scalaJSUseMainModuleInitializer := true
@@ -46,9 +47,6 @@ lazy val jshelloworld = crossProject.in(file("."))
       "org.scala-js"  %%% "scalajs-dom" % ScalaJSDom
     )
   , artifactPath in (Compile, fastOptJS) := jsPath / "application.js"
-  )
-  .jvmSettings(
-    libraryDependencies += "org.subscript-lang" %% "subscript-swing" % SubScript
   )
 
 
